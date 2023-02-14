@@ -54,6 +54,7 @@ const [ratings, setRatings] = useState(0);
     if(user){
       axios.delete(`http://localhost:8000/deleteReview?userUID=${user?.uid}&requestedReviewId=${reviewId}`)
       .then(res=>{
+        console.log(res.data)
           const {_id}=res.data.deleteReview
           const remainedReviews=review?.filter(item=>item._id!==_id)
           setReview(remainedReviews)

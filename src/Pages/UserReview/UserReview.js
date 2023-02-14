@@ -20,7 +20,20 @@ const UserReview = () => {
         })
         .catch(error=>console.log(error.message))
     },[user?.uid])
-
+    const handleDeleteReview=(reviewId)=>{
+        // console.log(reviewId)
+        if(user){
+          axios.delete(`http://localhost:8000/deleteReview?userUID=${user?.uid}&requestedReviewId=${reviewId}`)
+          .then(res=>{
+              const remained=userReviews?.filter(item=>item._id!==reviewId)
+              setUserReviews(remained)
+      
+          }).catch(err=>console.log(err))
+        }
+        else{
+          return 
+        }
+    }
     return (
         <div className='container'>
            <h2>Total Reviews : {userReviews?.length}</h2>
@@ -32,11 +45,13 @@ const UserReview = () => {
           <th>Service Name</th>
           <th>Review Text</th>
           <th>Date</th>
+          <th>Delete </th>
+          <th>Edit</th>
         </tr>
       </thead>
       <tbody>
 {
-    userReviews?.map((item,index)=><SingleUserReview data={item} index={index} key={item._id}></SingleUserReview>)
+    userReviews?.map((item,index)=><SingleUserReview handleDeleteReview={handleDeleteReview} data={item} index={index} key={item._id}></SingleUserReview>)
 }
       </tbody>
     </Table>

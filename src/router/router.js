@@ -1,6 +1,7 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import About from "../Pages/About/About";
+import AddService from "../Pages/AddService/AddService";
 import FullLogin from "../Pages/Contact/FullLogin";
 import FullSignUp from "../Pages/Contact/FullSignUp";
 import Home from "../Pages/Home/Home";
@@ -43,6 +44,9 @@ const router=createBrowserRouter([
             },{
                 path:'/userReview',
                 element:<PrivateRoute> <UserReview></UserReview></PrivateRoute>
+            },{
+                path:'/addService',
+                element:<AddService></AddService>
             }
         ]
     }

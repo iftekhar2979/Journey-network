@@ -28,7 +28,6 @@ const facebookProvider = new FacebookAuthProvider()
       return signInWithEmailAndPassword(auth, email, password);
     };
     const signOutUser = () => {
-      // setLoading(true);
       return signOut(auth);
     };
     const updateUserProfile = (object) => {

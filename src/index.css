@@ -60,7 +60,7 @@ h6,
 }
 
 .navbar-light .navbar-nav .nav-link {
-  padding: 30px 15px;
+  padding: 27px 8px;
   color: #212121;
   font-weight: 500;
   outline: none;
@@ -338,4 +338,14 @@ svg.deleteBtn {
 .table-img {
   height: 4rem;
   width: 5rem;
+}
+.position-relative{
+  position: relative !important
+}
+.bordered {
+  border: 1px solid gray;
+  padding: 5rem;
+  margin: 50px 0px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 3px black;
 }
