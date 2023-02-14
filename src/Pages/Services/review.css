@@ -1,0 +1,24 @@
+.review {
+    /* border: 1px solid darkgray; */
+    height: auto;
+    box-shadow: 1px 1px 4px grey;
+    /* display: flex; */
+}
+.single-review {
+    display: flex;
+}
+.reviewer-img {
+    height: 5rem;
+    width: 5rem;
+}
+textarea {
+    resize: vertical;
+    height: 6rem;
+    width: 18rem;
+    border: 1px solid #ffc107;
+}
+.edit-btn{
+    width: 2rem;
+    color: aquamarine;
+    margin-left: 1rem;
+}

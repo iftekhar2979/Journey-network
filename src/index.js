@@ -1,13 +1,22 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import { RouterProvider } from 'react-router-dom';
+import 'react-tooltip/dist/react-tooltip.css';
+import 'swiper/css';
 import App from './App';
+import UserContext from './Context/UserContext';
+import './index.css';
 import reportWebVitals from './reportWebVitals';
-
+import router from './router/router';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <React.StrictMode>
+    <UserContext>
+    <RouterProvider router={router}></RouterProvider>
     <App />
+    </UserContext>
   </React.StrictMode>
 );
 

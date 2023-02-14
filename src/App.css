@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+.avatar{
+  height: 50px;
+  width: 50px;
+  /* border-radius: 25px; */
+  margin: 15px;
+}
+.avatar-img{
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+}
+button.btn.btn-warning.signOut {
+  width: 90px;
+  height: 40px;
+  margin-top: 20px;
+}
+button.ml-4.btn.btn-danger {
+  margin-left: 1rem;
+}
