@@ -4,7 +4,6 @@ import Rating from '../../utilites/Rating';
 import './review.css';
 const Reviews = ({ data, handleDeleteReview }) => {
   const { user } = useContext(AuthContext);
-  // console.log(user)
   const {
     reviewer,
     reviewText,
@@ -15,7 +14,7 @@ const Reviews = ({ data, handleDeleteReview }) => {
     _id,
     userUID,
   } = data;
-  //   console.log(data)
+  
   return (
     <div className='review mt-2'>
       <div className='single-review'>

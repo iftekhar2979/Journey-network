@@ -26,8 +26,12 @@ const NavigationBar = () => {
                     <Link to='/' className='nav-item nav-link'>Home</Link>
                         <Link to='/services' className='nav-item nav-link'>Services</Link>
                     <Link to='/about' className='nav-item nav-link'>About</Link>
-                         
-                        <Link to='/contact' className='nav-item nav-link'>Sign In</Link>
+                         {
+                            user ? <Link to='/userReview' className='nav-item nav-link'>My reviews</Link>
+                            :
+                            <Link to='/contact' className='nav-item nav-link'>Sign In</Link>
+
+                         }
                         <ReactTooltip anchorId="my-element" />
                         {
                             user && <> <div className='avatar' id="my-element" data-tooltip-content={user?.displayName}><img src={user?.photoURL} alt="" className="img-fluid avatar-img" /></div>

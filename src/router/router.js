@@ -6,8 +6,9 @@ import FullSignUp from "../Pages/Contact/FullSignUp";
 import Home from "../Pages/Home/Home";
 import DetailService from "../Pages/Services/DetailService";
 import TotalServices from "../Pages/Services/TotalServices";
+import UserReview from "../Pages/UserReview/UserReview";
 import Root from "../Root/Root";
-
+import PrivateRoute from './PrivateRoute';
 
 
 const router=createBrowserRouter([
@@ -39,6 +40,9 @@ const router=createBrowserRouter([
                     return fetch(`http://localhost:8000/service/${params.id}`)
                 },
                 element:<DetailService></DetailService>
+            },{
+                path:'/userReview',
+                element:<PrivateRoute> <UserReview></UserReview></PrivateRoute>
             }
         ]
     }

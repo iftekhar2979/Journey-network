@@ -15,8 +15,7 @@ const [ratings, setRatings] = useState(0);
   const { description, image, price, rating, serviceName, createdAt, _id } =state;
   const changeRating = (newRating) => {
     setRatings(newRating);
-    console.log(ratings
-      )
+    // console.log(ratings)
   };
   useEffect(() => {
     axios
@@ -34,6 +33,9 @@ const [ratings, setRatings] = useState(0);
       .post(`http://localhost:8000/addReview`, {
         reviewer: user?.displayName,
         userUID: user?.uid,
+        serviceName:serviceName,
+        serviceDescription:description,
+        serviceImg:image,
         postId: _id,
         rating:ratings,
         reviewerImg: user?.photoURL,
@@ -61,7 +63,7 @@ const [ratings, setRatings] = useState(0);
     else{
       return 
     }
-    }
+}
     
    
   return (
@@ -74,7 +76,22 @@ const [ratings, setRatings] = useState(0);
         <p>{description}</p>
 
         <h4>Price : {price}</h4>
-        <h5>rating : {rating}</h5>
+        <h5>Rating : 
+          <span>
+            {
+                <span>
+                {[1, 2, 3, 4, 5].map((value) => (
+                  <Rating
+                    key={value}
+                    className='star'
+                    filled={value <= rating}
+                    
+                  />
+                ))}
+              </span>
+            }
+          </span>
+          </h5>
         <h5>Created At: {createdAt}</h5>
       </div>
       <h1>Reviews : </h1>
