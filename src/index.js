@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import 'react-tooltip/dist/react-tooltip.css';
 import 'swiper/css';
 import App from './App';
+import ReviewContext from './Context/ReviewContext';
 import UserContext from './Context/UserContext';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
@@ -16,9 +17,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <UserContext>
+      <ReviewContext>
     <RouterProvider router={router}></RouterProvider>
     <ToastContainer />
     <App />
+    </ReviewContext>
     </UserContext>
   </React.StrictMode>
 );

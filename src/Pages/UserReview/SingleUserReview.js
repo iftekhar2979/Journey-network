@@ -1,10 +1,19 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../Context/UserContext';
+import React, { useContext, useState } from 'react';
+// import React, { PureComponent } from 'react'
+import { Button, Modal } from 'react-bootstrap';
+import { ReviewState } from '../../Context/ReviewContext';
+import EditService from '../AddService/EditService';
 
-const SingleUserReview = ({ data, index ,handleDeleteReview}) => {
-  const {user}=useContext(AuthContext)
-  const { serviceName, serviceImg, reviewText, createdAt, time ,_id} = data;
+const SingleUserReview = ({ data, index ,handleDeleteReview,}) => {
  
+  const {reviewHandle}=useContext(ReviewState)
+
+  const [show, setShow] = useState(false);
+  const { serviceName, serviceImg, reviewText, createdAt, time ,_id} = data;
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+  
   return (
     <>
       <tr>
@@ -12,13 +21,13 @@ const SingleUserReview = ({ data, index ,handleDeleteReview}) => {
         <td>
           <img src={serviceImg} alt='' className='table-img' />
         </td>
-        <td>{serviceName}</td>
-        <td>{reviewText}</td>
+        <td>{reviewHandle?.serviceName?reviewHandle.serviceName:serviceName}</td>
+        <td>{reviewHandle?.reviewText?reviewHandle.reviewText:reviewText  }</td>
         <td>
           {createdAt} <br />
           <span className='h6'>{time}</span>
         </td>
-        <td>
+        <td className='d-flex justify-content-center align-items-center'>
           <span className='h1 text-danger cursor-pointer p-2' onClick={()=>handleDeleteReview(_id)}>x</span>
         </td>
         <td >
@@ -29,6 +38,8 @@ const SingleUserReview = ({ data, index ,handleDeleteReview}) => {
             strokeWidth={1.5}
             stroke='currentColor'
             className='h1 my-4'
+            onClick={handleShow}
+            
           >
             <path
               strokeLinecap='round'
@@ -37,6 +48,23 @@ const SingleUserReview = ({ data, index ,handleDeleteReview}) => {
             />
           </svg>
         </td>
+       
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit Review</Modal.Title>
+        </Modal.Header>
+        <Modal.Body><EditService data={data}></EditService></Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Yes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+        
       </tr>
     </>
   );

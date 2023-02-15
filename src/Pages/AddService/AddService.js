@@ -11,6 +11,7 @@ const AddService = () => {
         console.log(ratings)
       };
     const onSubmit=(object)=>{
+      // console.log(object)
        object["rating"]=ratings
         axios.post(`http://localhost:8000/addService`,object)
         .then(res=>{
@@ -22,11 +23,12 @@ const AddService = () => {
         .catch(error=>console.log(error))
     }
     return (
+      
         <div className='d-flex justify-content-center align-items-center'>
-            <form action="" onSubmit={handleSubmit(onSubmit)} className="w-50 bordered">
+            <form action="" onSubmit={handleSubmit(onSubmit)} className="w-75 bordered">
                 <h1 className='my-2 text-center'>Add Service</h1>
                 <input type="text" className='form-control py-2 my-2' placeholder='Service Name'  {...register("serviceName",{required:true})}/>
-                <textarea rows="4" cols="50" placeholder="Add the Deescription here" {...register("description",{required:true})}></textarea>
+                <textarea rows="4" className='form-control' cols="50" placeholder="Add the Deescription here" {...register("description",{required:true})}></textarea>
                 <input type="text" className='form-control py-2 my-2' placeholder='Price' {...register("price",{required:true})} />
                 <input type="text" className='form-control py-2 my-2' placeholder='Image' {...register("image",{required:true})} />
                 <h5>Rating : 
@@ -46,7 +48,7 @@ const AddService = () => {
             }
           </span>
           </h5>
-                <button className="btn btn-primary">Add Service</button>
+                <button className="btn btn-primary" type='submit'>Add Service</button>
             </form>
         </div>
     );

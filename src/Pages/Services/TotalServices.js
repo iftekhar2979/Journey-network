@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
+import { toast } from 'react-toastify';
 import Loading from '../../utilites/Loading';
 import SingleServices from '../Home/SingleServices';
 const TotalServices = () => {
@@ -9,6 +10,10 @@ const TotalServices = () => {
     const [loading,setLoading]=useState(false)
     const [count,setCount]=useState(0)
     const [show, setShow] = useState(false);
+   
+    const [deleteItem,setDeleteItem]=useState('')
+
+  
     
     const url='http://localhost:8000/services'
     useEffect(()=>{
@@ -43,17 +48,22 @@ const TotalServices = () => {
     }
    
     const handleDelete=(id)=>{
-        axios.delete(`http://localhost:8000/deleteService/${id}`)
+      setDeleteItem(id)
+      console.log(`http://localhost:8000/deleteService/${deleteItem}`)
+   
+        axios.delete(`http://localhost:8000/deleteService/${deleteItem}`)
         .then(res=>{
            console.log(res.data)
           const remained=serviceData?.filter(item=>item._id!==id)
           setServiceData(remained)
            setShow(false)
+           const notify = () => toast.success("Service Deleted Succesfully",{position:'top-center',autoClose:2000,});
+           notify()
         })
         .catch(err=>console.log(err))
         // console.log(serviceData)
     }
-    
+  
     return (
         <div className='container-fluid py-5'>
         <div className='container pt-5 pb-3'>

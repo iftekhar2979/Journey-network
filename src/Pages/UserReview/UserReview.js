@@ -6,7 +6,9 @@ import Loading from '../../utilites/Loading';
 import SingleUserReview from './SingleUserReview';
 const UserReview = () => {
     const {user}=useContext(AuthContext)
+    
     const [userReviews,setUserReviews]=useState()
+    const [show,setShow]=useState(false)
     if(!user){
        <Loading></Loading>
     }
@@ -15,7 +17,7 @@ const UserReview = () => {
        
         axios.get(`http://localhost:8000/getAllReviews?userUID=${user?.uid}`)
         .then(res=>{
-            console.log(res.data)
+            // console.log(res.data)
             setUserReviews(res.data)
         })
         .catch(error=>console.log(error.message))
@@ -34,6 +36,9 @@ const UserReview = () => {
           return 
         }
     }
+    const handleEdit=(id)=>{
+      console.log(id)
+    }
     return (
         <div className='container'>
            <h2>Total Reviews : {userReviews?.length}</h2>
@@ -51,7 +56,7 @@ const UserReview = () => {
       </thead>
       <tbody>
 {
-    userReviews?.map((item,index)=><SingleUserReview handleDeleteReview={handleDeleteReview} data={item} index={index} key={item._id}></SingleUserReview>)
+    userReviews?.map((item,index)=><SingleUserReview handleDeleteReview={handleDeleteReview} handleEdit={handleEdit} data={item} index={index} key={item._id}></SingleUserReview>)
 }
       </tbody>
     </Table>
