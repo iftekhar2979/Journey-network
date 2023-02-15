@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import Rating from '../../utilites/Rating';
@@ -25,6 +26,9 @@ const AddService = () => {
     return (
       
         <div className='d-flex justify-content-center align-items-center'>
+           <Helmet>
+        <title>Blog--World Explorer</title>
+      </Helmet>
             <form action="" onSubmit={handleSubmit(onSubmit)} className="w-75 bordered">
                 <h1 className='my-2 text-center'>Add Service</h1>
                 <input type="text" className='form-control py-2 my-2' placeholder='Service Name'  {...register("serviceName",{required:true})}/>

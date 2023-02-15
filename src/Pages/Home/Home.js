@@ -1,4 +1,5 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import AboutUs from './AboutUs';
 import Pakages from './Pakages';
 import Services from './Services';
@@ -10,7 +11,9 @@ const Home = () => {
   // console.log(name)
     return (
       <>
-      
+      <Helmet>
+        <title>WorldExplorer</title>
+      </Helmet>
       <Slider></Slider>
       <Services></Services>
       <AboutUs></AboutUs>

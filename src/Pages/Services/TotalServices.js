@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import Pagination from 'react-bootstrap/Pagination';
+import Helmet from 'react-helmet';
 import { toast } from 'react-toastify';
 import Loading from '../../utilites/Loading';
 import SingleServices from '../Home/SingleServices';
@@ -65,7 +66,10 @@ const TotalServices = () => {
     }
   
     return (
-        <div className='-fluid py-5'>
+        <div className=' py-5'>
+          <Helmet>
+            <title>Services --world explorer</title>
+          </Helmet>
         <div className=' pt-5 pb-3'>
           <div className='text-center mb-3 pb-3'>
             <h6

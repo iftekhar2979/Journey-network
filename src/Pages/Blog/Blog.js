@@ -1,5 +1,6 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
+import { Helmet } from 'react-helmet';
 import SingleBlog from './SingleBlog';
 const Blog = () => {
   const blogPost = [
@@ -32,6 +33,9 @@ answerSecond:''
   ];
   return (
     <div className='container my-4'>
+         <Helmet>
+        <title>Blog--World Explorer</title>
+      </Helmet>
       <Accordion defaultActiveKey='0'>
        {
         blogPost?.map((item,index)=><SingleBlog key={index} data={item} index={index}></SingleBlog>)

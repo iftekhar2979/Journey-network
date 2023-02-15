@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import Helmet from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from '../../Context/UserContext';
 import './Contact.css';
@@ -30,6 +31,9 @@ const Contact = ({ children }) => {
 
   return (
     <div id='contact'>
+      <Helmet>
+        <title>Login--World Explorer</title>
+      </Helmet>
       <div className='footer'>
         <div className=''>
        
