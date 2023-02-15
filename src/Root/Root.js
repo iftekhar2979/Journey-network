@@ -4,7 +4,7 @@ import Footer from './Footer';
 import NavigationBar from './NavigationBar';
 const Root = () => {
     return (
-        <div className='container container-fluid'>
+        <div className=' -fluid'>
             <NavigationBar></NavigationBar>
             <Outlet></Outlet>
             <Footer></Footer>

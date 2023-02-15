@@ -14,8 +14,8 @@ const Services = () => {
 
   }
   return (
-    <div className='container-fluid py-5'>
-      <div className='container pt-5 pb-3'>
+    <div className='-fluid py-5'>
+      <div className=' pt-5 pb-3'>
         <div className='text-center mb-3 pb-3'>
           <h6
             className='text-primary text-uppercase'

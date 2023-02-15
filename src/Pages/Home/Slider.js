@@ -32,7 +32,7 @@ const Slider = () => {
        
     ]
   return (
-    <div className="container">
+    <div className="">
      <Swiper
         cssMode={true}
         navigation={true}

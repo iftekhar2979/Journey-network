@@ -51,6 +51,9 @@ const NavigationBar = () => {
               <Link to='/about' className='nav-item nav-link'>
                 About
               </Link>
+              <Link to='/blog' className='nav-item nav-link'>
+                Blog
+              </Link>
               {user ? (
                 <>
                   <Link to='/userReview' className='nav-item nav-link'>
@@ -95,7 +98,7 @@ const NavigationBar = () => {
         </nav>
         {
             toggle &&
-            <div className='position-absolute left-bar'>
+            <div className='position-absolute left-bar bg-white'>
               <div className='navbar-nav ms-auto py-0'>
               <Link to='/' className='nav-item nav-link'>
                 Home

@@ -2,6 +2,7 @@ import React from "react";
 import { createBrowserRouter } from "react-router-dom";
 import About from "../Pages/About/About";
 import AddService from "../Pages/AddService/AddService";
+import Blog from "../Pages/Blog/Blog";
 import FullLogin from "../Pages/Contact/FullLogin";
 import FullSignUp from "../Pages/Contact/FullSignUp";
 import Home from "../Pages/Home/Home";
@@ -47,6 +48,9 @@ const router=createBrowserRouter([
             },{
                 path:'/addService',
                 element:<AddService></AddService>
+            },{
+                path:'/blog',
+                element:<Blog></Blog>
             }
         ]
     }

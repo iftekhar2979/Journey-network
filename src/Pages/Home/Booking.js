@@ -2,8 +2,8 @@ import React from 'react';
 
 const Booking = () => {
     return (
-        <div className="container-fluid booking mt-5 pb-5">
-        <div className="container pb-5">
+        <div className="-fluid booking mt-5 pb-5">
+        <div className=" pb-5">
             <div className="bg-light shadow" style={{padding:"30px"}}>
                 <div className="row align-items-center"  style={{minHeight:"60px"}}>
                     <div className="col-md-10">

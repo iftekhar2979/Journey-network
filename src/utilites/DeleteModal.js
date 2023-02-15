@@ -7,7 +7,7 @@ function DeleteModal(props) {
     <div className={`delete-modal ${show ? 'show' : ''}`}>
       <div className="modal-content">
         <p>Are you sure you want to delete this item?</p>
-        <div className="button-container">
+        <div className="button-">
           <button className="cancel-button" onClick={onClose}>
             Cancel
           </button>

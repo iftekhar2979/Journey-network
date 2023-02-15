@@ -10,8 +10,8 @@ const WhyChooseUs = () => {
         <div>
             <h1 className='text-center'> Why Choose Us?</h1>
         </div>
-        <div className="choose container">
-         <div className="container">
+        <div className="choose ">
+         <div className="">
             <div className="row">
                <div className="col-lg-6 col-md-7 ">
                   <div className="titlepage">

@@ -31,7 +31,7 @@ const Contact = ({ children }) => {
   return (
     <div id='contact'>
       <div className='footer'>
-        <div className='container'>
+        <div className=''>
        
          
             <div className='row'>

@@ -40,7 +40,7 @@ const UserReview = () => {
       console.log(id)
     }
     return (
-        <div className='container'>
+        <div className=''>
            <h2>Total Reviews : {userReviews?.length}</h2>
            <Table striped bordered hover>
       <thead>
