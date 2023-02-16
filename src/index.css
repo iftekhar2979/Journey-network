@@ -595,3 +595,9 @@ svg.h1.my-4:hover {
 }
 
 }
+@media only screen and (max-width: 610px){
+.bordered {
+    width: 28rem !important;
+    /* max-width: 57rem; */
+}
+}
