@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import Rating from '../../utilites/Rating';
@@ -69,10 +69,12 @@ const [ratings, setRatings] = useState(0);
     
    
   return (
-    <div className='mt-4'>
+    <div className='container mt-4'>
+      <HelmetProvider>
       <Helmet>
         <title>{serviceName}----world Explorer</title>
       </Helmet>
+      </HelmetProvider>
       <div className='d-flex justify-content-center'>
         <img src={image} alt='' className='img-fluid' />
       </div>

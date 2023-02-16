@@ -577,3 +577,11 @@ svg.h1.my-4:hover {
 .navbar-nav.ms-auto.py-0 {
   padding: 50px;
 }
+.footer-link{
+  font-size: 1.25em;
+  font-weight: 400;
+
+}
+.footer-link:hover{
+  color: #5f8f25;
+}

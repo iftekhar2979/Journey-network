@@ -17,15 +17,18 @@ const Slider = () => {
     const carouselDetails=[
 
         {
+          id:14,
             img:"https://images.unsplash.com/photo-1484821582734-6c6c9f99a672?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1333&q=80",
             title:"Let's Read The World",
 
         },
         {
+          id:15,
             img:"https://images.unsplash.com/photo-1675800473686-ab069894ccf8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1331&q=80",
             title:"Let's Play With Mind and Explore The world",
 
         },{
+          id:16,
             img:"https://images.unsplash.com/photo-1659430836012-77f4d3dc5b7d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1354&q=80",
             title:"Booking now for finding hemaliyas",
         }
@@ -48,7 +51,7 @@ const Slider = () => {
       >
 
         {
-            carouselDetails?.map((item,index)=><SwiperSlide><SingleSlider data={item} key={index}></SingleSlider></SwiperSlide>)
+            carouselDetails?.map((item,index)=><SwiperSlide key={index}><SingleSlider data={item} key={item.id}></SingleSlider></SwiperSlide>)
         }
        
       </Swiper>

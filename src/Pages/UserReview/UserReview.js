@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import Loading from '../../utilites/Loading';
 import SingleUserReview from './SingleUserReview';
@@ -40,11 +41,21 @@ const UserReview = () => {
       console.log(id)
     }
     return (
-        <div className=''>
+
+        <div className='container'>
            <h2>Total Reviews : {userReviews?.length}</h2>
-           <Table striped bordered hover>
+
+           
+        {
+          userReviews?.length===0?
+          <div className='d-flex align-items-center justify-content-center'>
+            <h1>You Have no Reviews Add a review <Link to='/services'>Service</Link></h1>
+          </div>
+          :
+          <>
+          <Table striped bordered hover>
       <thead>
-        <tr>
+           <tr>
           <th>Number</th>
           <th>Service Image</th>
           <th>Service Name</th>
@@ -60,6 +71,9 @@ const UserReview = () => {
 }
       </tbody>
     </Table>
+          </>
+        }
+       
         </div>
     );
 };

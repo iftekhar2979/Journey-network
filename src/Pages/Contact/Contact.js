@@ -1,35 +1,16 @@
-import React, { useContext } from 'react';
-import Helmet from 'react-helmet';
-import { useForm } from 'react-hook-form';
-import { AuthContext } from '../../Context/UserContext';
+import React from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import './Contact.css';
 const Contact = ({ children }) => {
-  const { createNewUser, updateUserProfile } = useContext(AuthContext);
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm();
+  // const { createNewUser, updateUserProfile } = useContext(AuthContext);
 
   
   const [loginAndSignUpComponent,SideComponent]=children
-  const onSubmit = (obj) => {
-    const { displayName, email, password, phoneNumber, photoUrl } = obj;
-    createNewUser(email, password)
-      .then((result) => {
-        const user = result.user;
-        updateUserProfile({ displayName, photoUrl });
-        console.log(user);
-        alert('successfully account created');
-      })
-      .catch((err) => {
-        console.log('err : ', err.message);
-      });
-  };
+  
 
 
   return (
+    <HelmetProvider>
     <div id='contact'>
       <Helmet>
         <title>Login--World Explorer</title>
@@ -48,6 +29,7 @@ const Contact = ({ children }) => {
         </div>
       </div>
     </div>
+    </HelmetProvider>
   );
 };
 

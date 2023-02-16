@@ -1,6 +1,6 @@
 import React from 'react';
 import Accordion from 'react-bootstrap/Accordion';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import SingleBlog from './SingleBlog';
 const Blog = () => {
   const blogPost = [
@@ -32,6 +32,7 @@ answerSecond:''
 }
   ];
   return (
+    <HelmetProvider>
     <div className='container my-4'>
          <Helmet>
         <title>Blog--World Explorer</title>
@@ -42,6 +43,7 @@ answerSecond:''
        }
       </Accordion>
     </div>
+    </HelmetProvider>
   );
 };
 

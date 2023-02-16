@@ -1,5 +1,5 @@
 import React from 'react';
-import Helmet from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import AboutUs from './AboutUs';
 import Pakages from './Pakages';
 import Services from './Services';
@@ -11,6 +11,8 @@ const Home = () => {
   // console.log(name)
     return (
       <>
+      <div className='container'>
+      <HelmetProvider>
       <Helmet>
         <title>WorldExplorer</title>
       </Helmet>
@@ -19,7 +21,8 @@ const Home = () => {
       <AboutUs></AboutUs>
       <Pakages></Pakages>
       <WhyChooseUs></WhyChooseUs>
-      
+      </HelmetProvider>
+      </div>
       </>
     );
 };

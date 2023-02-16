@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-toastify';
 import Rating from '../../utilites/Rating';
@@ -24,7 +24,7 @@ const AddService = () => {
         .catch(error=>console.log(error))
     }
     return (
-      
+      <HelmetProvider>
         <div className='d-flex justify-content-center align-items-center'>
            <Helmet>
         <title>Blog--World Explorer</title>
@@ -55,6 +55,7 @@ const AddService = () => {
                 <button className="btn btn-primary" type='submit'>Add Service</button>
             </form>
         </div>
+        </HelmetProvider>
     );
 };
 
