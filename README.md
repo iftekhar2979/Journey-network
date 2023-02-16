@@ -8,7 +8,7 @@
 * Node Js
 * MongoDb Database
 * Express Js
-# Pakages :
+# Packages :
 * Mongoose
 * JWT Token
 * dot environment
