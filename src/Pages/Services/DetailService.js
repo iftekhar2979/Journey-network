@@ -1,11 +1,11 @@
 import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 import Rating from '../../utilites/Rating';
 import Reviews from './Reviews';
-
 const DetailService = () => {
   const { user } = useContext(AuthContext);
 // console.log(user)
@@ -76,7 +76,12 @@ const [ratings, setRatings] = useState(0);
       </Helmet>
       </HelmetProvider>
       <div className='d-flex justify-content-center'>
+      <PhotoProvider>
+      <PhotoView src={image}>
+     
         <img src={image} alt='' className='img-fluid' />
+      </PhotoView>
+    </PhotoProvider>
       </div>
       <div className='text-center'>
         <h1>{serviceName}</h1>

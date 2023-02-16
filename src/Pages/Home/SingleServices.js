@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
 const SingleServices = ({ data, handleDelete, setShow, show }) => {
@@ -12,7 +13,11 @@ const SingleServices = ({ data, handleDelete, setShow, show }) => {
    
  
       <div className='service-item bg-white text-center mb-2 py-5 px-4'>
+      <PhotoProvider>
+      <PhotoView src={image}>
         <img src={image} className=' mx-auto mb-4 img-fluid' alt='' />
+      </PhotoView>
+    </PhotoProvider>
         <h5 className='mb-2'>{serviceName}</h5>
         <p className='m-0'>{description.slice(0, 50) + '...'}</p>
         <div className='d-flex text-center'>

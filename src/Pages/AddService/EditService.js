@@ -14,7 +14,6 @@ const EditService = ({ data,handleClose }) => {
     setRatings(newRating);
 
   };
- 
   const onSubmit = (object) => {
     axios.put(`http://localhost:8000/editReview?userUID=${userUID}&requestedReviewId=${_id}`,object)
     .then(res=>{
@@ -24,8 +23,7 @@ const EditService = ({ data,handleClose }) => {
         setUserReviews(newReview)
         handleClose()
         const notify = () => toast.success("Service Added Successfully",{position:'top-center',autoClose:2000,});
-            notify()
-          
+            notify()  
     })
     .catch(err=>console.log(err.message))
   };

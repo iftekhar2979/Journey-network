@@ -19,7 +19,7 @@ const Reviews = ({ data, handleDeleteReview }) => {
     <div className='review mt-2'>
       <div className='single-review'>
         <div className='reviewer-img'>
-          <img src={reviewerImg} alt='' className='img-fluid' />
+        
         </div>
         <div className='d-flex'>
           <div>
