@@ -1,7 +1,7 @@
 import {
   createUserWithEmailAndPassword,
   FacebookAuthProvider,
-  getAuth, onAuthStateChanged,
+  getAuth, GoogleAuthProvider, onAuthStateChanged,
   signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
 } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
@@ -10,7 +10,7 @@ export const AuthContext=createContext(null)
  const UserContext = ({children}) => {
   const contact={
     login:"https://safekaro.com/images/login.png",
-    signUp:"https://www.shutterstock.com/image-vector/new-user-online-registration-sign-600w-1983968993.jpg"
+    signUp:"https://images.unsplash.com/photo-1484807352052-23338990c6c6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
   }
   const [loginImg,setLoginImg]=useState(contact)
     const [user,setUser]=useState()
@@ -18,6 +18,7 @@ export const AuthContext=createContext(null)
     const auth = getAuth(app)
   
 const facebookProvider = new FacebookAuthProvider()
+const googleprovider = new GoogleAuthProvider();
     const createNewUser = (email, password) => {
       setLoading(true);
       return createUserWithEmailAndPassword(auth, email, password);
@@ -29,6 +30,10 @@ const facebookProvider = new FacebookAuthProvider()
     };
     const signOutUser = () => {
       return signOut(auth);
+    };
+    const signInWithGoogle = () => {
+      setLoading(true)
+      return signInWithPopup(auth, googleprovider);
     };
     const updateUserProfile = (object) => {
         setLoading(true)
@@ -52,7 +57,7 @@ const facebookProvider = new FacebookAuthProvider()
       }, [auth]);
     const object={
         createNewUser,signIn,signOutUser,updateUserProfile,loginImg,setUser,user,signInWithFacebook,loading
-
+,signInWithGoogle
     }
     return (
         <AuthContext.Provider value={object}>

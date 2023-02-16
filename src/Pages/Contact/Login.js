@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 const Login = () => {
-  const { signIn, setUser, signInWithFacebook } = useContext(AuthContext);
+  const { signIn, setUser, signInWithFacebook ,signInWithGoogle} = useContext(AuthContext);
   const {
     register,
     handleSubmit,
@@ -38,7 +38,18 @@ const Login = () => {
     signInWithFacebook()
       .then((result) => {
         const user = result.user;
-        console.log(user);
+        setUser(user);
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+  };
+  const handleGoogle = () => {
+    signInWithGoogle()
+      .then((result) => {
+        const user = result.user;
+        console.log(user)
+        setUser(user);
       })
       .catch((err) => {
         console.log(err.message);
@@ -79,9 +90,16 @@ const Login = () => {
           </button>
         </div>
       </div>
-      <button className='btn btn-primary' onClick={handleFacebook}>
-        Sign In with Facebook
-      </button>
+        <h5>Login With</h5>
+      <div className='d-flex justify-content-center'>
+      <div   onClick={handleFacebook}>
+        <img src="https://www.facebook.com/images/fb_icon_325x325.png" style={{width:"50px"}} alt="" />
+      </div>
+      <div  onClick={handleGoogle} className='ms-2'>
+        <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="" style={{width:"50px"}} className='img-fluid'/>
+      </div>
+      </div>
+     
       <h6>
         Don't Have Account <Link to='/signup'>Sign Up</Link>
       </h6>
