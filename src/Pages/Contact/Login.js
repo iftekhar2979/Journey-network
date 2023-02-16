@@ -1,8 +1,8 @@
+import axios from 'axios';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Context/UserContext';
-
 const Login = () => {
   const { signIn, setUser, signInWithFacebook } = useContext(AuthContext);
   const {
@@ -16,10 +16,18 @@ const Login = () => {
   const from = location.state?.from?.pathName || '/';
   const onSubmit = (obj) => {
     const { email, password } = obj;
+
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        axios
+          .post('http://localhost:8000/jwt', { user: user.email })
+          .then((res) => {
+            console.log(res.data);
+            localStorage.setItem('token', res.data);
+          });
         setUser(user);
+
         navigate(from, { replace: true });
       })
       .catch((err) => console.log(err));
