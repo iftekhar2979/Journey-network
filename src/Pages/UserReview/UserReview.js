@@ -9,7 +9,6 @@ const UserReview = () => {
     const {user}=useContext(AuthContext)
     
     const [userReviews,setUserReviews]=useState()
-    const [show,setShow]=useState(false)
     if(!user){
        <Loading></Loading>
     }
@@ -18,13 +17,13 @@ const UserReview = () => {
        
         axios.get(`http://localhost:8000/getAllReviews?userUID=${user?.uid}`)
         .then(res=>{
-            // console.log(res.data)
+            
             setUserReviews(res.data)
         })
         .catch(error=>console.log(error.message))
     },[user?.uid])
     const handleDeleteReview=(reviewId)=>{
-        // console.log(reviewId)
+       
         if(user){
           axios.delete(`http://localhost:8000/deleteReview?userUID=${user?.uid}&requestedReviewId=${reviewId}`)
           .then(res=>{

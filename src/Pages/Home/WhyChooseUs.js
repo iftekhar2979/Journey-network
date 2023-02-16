@@ -15,19 +15,19 @@ const WhyChooseUs = () => {
             <div className="row">
                <div className="col-lg-6 col-md-7 ">
                   <div className="titlepage">
-                     <h2>Why Choose Us</h2>
-                     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
-                     <div className="award">
-                        <div id="awa_ho" className="award_icon text_align_center">
+                     <h2 className='ms-4'>Why Choose Us</h2>
+                     <p className='ms-4'>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomisedThere are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised</p>
+                     <div className="award ms-4">
+                        <div id="awa_ho" className="ms-4 award_icon text_align_center">
                            <i><img src={ch1} alt="#"/>
                            </i>
                            <strong>client satisfaction</strong>
                         </div>
-                        <div id="awa_ho" className="award_icon text_align_center">
+                        <div id="awa_ho" className="ms-4 award_icon text_align_center">
                            <i><img src={ch2} alt="#"/></i>
                            <strong>award</strong>
                         </div>
-                        <div id="awa_ho" className="award_icon text_align_center">
+                        <div id="awa_ho" className=" ms-4 award_icon text_align_center">
                            <i><img src={ch3} alt="#"/></i>
                            <strong>Trustable</strong>
                         </div>

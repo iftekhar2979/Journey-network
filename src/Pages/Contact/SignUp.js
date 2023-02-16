@@ -28,7 +28,6 @@ const SignUp = () => {
       >
         <div className='titlepage mb-4'>
                 <h2>Register Here</h2>
-    
             </div>
         <div className='row'>
           <div className='col-md-12 '>
@@ -87,31 +86,7 @@ const SignUp = () => {
             </button>
           </div>
           <div className='col-sm-col-xl-6 col-lg-6 col-md-6 col-sm-12'>
-            <ul className='social_icon'>
-              <li>
-                <a href='#'>
-                  <i className='fa fa-facebook' aria-hidden='true'></i>
-                </a>
-              </li>
-              <li>
-                <a href='#'>
-                  <i className='fa fa-twitter' aria-hidden='true'></i>
-                </a>
-              </li>
-              <li>
-                <a href='#'>
-                  <i
-                    className='fa fa-linkedin-square'
-                    aria-hidden='true'
-                  ></i>
-                </a>
-              </li>
-              <li>
-                <a href='#'>
-                  <i className='fa fa-instagram' aria-hidden='true'></i>
-                </a>
-              </li>
-            </ul>
+           
           </div>
         </div>
         <h6>Already have account <Link to="/contact">Log In</Link></h6>

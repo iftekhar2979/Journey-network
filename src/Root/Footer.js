@@ -5,9 +5,9 @@ const Footer = () => {
         <div className="container bg-light text-dark-50 py-5 px-sm-3 px-lg-5" style={{marginTop:"90px"}}>
         <div className="row pt-5">
             <div className="col-lg-3 col-md-6 mb-5">
-                <a href="" className="navbar-brand">
+                <div className="navbar-brand">
                     <h1 className="text-primary"><span className="text-dark">World</span>Explore</h1>
-                </a>
+                </div>
                 
                 <h6 className="text-dark text-uppercase mt-4 mb-3" style={{letterSpacing:"5px"}}>Follow Us</h6>
                 {/* <div className="d-flex justify-content-start">
