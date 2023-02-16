@@ -585,3 +585,9 @@ svg.h1.my-4:hover {
 .footer-link:hover{
   color: #5f8f25;
 }
+@media (min-width: 600px){
+  .choose {
+    margin-top: 14rem;
+}
+
+}

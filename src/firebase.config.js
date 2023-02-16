@@ -13,6 +13,7 @@ const firebaseConfig = {
   appId: "1:307332177116:web:9b1536994a37c86e422819"
 };
 
+console.log(process.env.REACT_APP_APIKEY)
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export default app

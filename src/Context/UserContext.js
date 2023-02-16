@@ -5,7 +5,7 @@ import {
   signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile
 } from 'firebase/auth';
 import React, { createContext, useEffect, useState } from 'react';
-import app from '../firbase/firebase.config';
+import app from '../firebase.config';
 export const AuthContext=createContext(null)
  const UserContext = ({children}) => {
   const contact={
