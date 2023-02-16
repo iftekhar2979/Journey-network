@@ -1,16 +1,12 @@
-import React, { useContext, useState } from 'react';
+import React, { useState } from 'react';
 // import React, { PureComponent } from 'react'
 import { Button, Modal } from 'react-bootstrap';
-import { ReviewState } from '../../Context/ReviewContext';
 import EditService from '../AddService/EditService';
 
 const SingleUserReview = ({ data, index ,handleDeleteReview,}) => {
  
-  const {reviewHandle}=useContext(ReviewState)
-
   const [show, setShow] = useState(false);
   const { serviceName, serviceImg, reviewText, createdAt, time ,_id} = data;
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
@@ -21,8 +17,8 @@ const SingleUserReview = ({ data, index ,handleDeleteReview,}) => {
         <td>
           <img src={serviceImg} alt='' className='table-img' />
         </td>
-        <td>{reviewHandle?.serviceName?reviewHandle.serviceName:serviceName}</td>
-        <td>{reviewHandle?.reviewText?reviewHandle.reviewText:reviewText  }</td>
+        <td>{serviceName}</td>
+        <td>{reviewText  }</td>
         <td>
           {createdAt} <br />
           <span className='h6'>{time}</span>
@@ -54,7 +50,7 @@ const SingleUserReview = ({ data, index ,handleDeleteReview,}) => {
         <Modal.Header closeButton>
           <Modal.Title>Edit Review</Modal.Title>
         </Modal.Header>
-        <Modal.Body><EditService data={data}></EditService></Modal.Body>
+        <Modal.Body><EditService data={data} handleClose={handleClose}></EditService></Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

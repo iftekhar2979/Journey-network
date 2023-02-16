@@ -2,21 +2,30 @@ import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
 import { ReviewState } from '../../Context/ReviewContext';
-const EditService = ({ data }) => {
-    const {setReviewHandle}=useContext(ReviewState)
+const EditService = ({ data,handleClose }) => {
+    const {setReviewHandle,userReviews,setUserReviews}=useContext(ReviewState)
   
-  const { register, handleSubmit, errors, reset } = useForm();
+  const { register, handleSubmit, _, reset } = useForm();
   const [ratings, setRatings] = useState(0);
   const { serviceName, userUID, reviewText,serviceDescription, createdAt, time ,_id} = data;
   const changeRating = (newRating) => {
     setRatings(newRating);
-    // console.log(ratings);
+
   };
+ 
   const onSubmit = (object) => {
     axios.put(`http://localhost:8000/editReview?userUID=${userUID}&requestedReviewId=${_id}`,object)
     .then(res=>{
         setReviewHandle(res.data)
+        const remainedItem=userReviews?.filter(item=>item._id!==res.data._id)
+        const newReview=[...remainedItem,res.data]
+        setUserReviews(newReview)
+        handleClose()
+        const notify = () => toast.success("Service Added Successfully",{position:'top-center',autoClose:2000,});
+            notify()
+          
     })
     .catch(err=>console.log(err.message))
   };

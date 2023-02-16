@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 const Login = () => {
   const { signIn, setUser, signInWithFacebook } = useContext(AuthContext);
@@ -23,7 +24,8 @@ const Login = () => {
         axios
           .post('http://localhost:8000/jwt', { user: user.email })
           .then((res) => {
-            console.log(res.data);
+            const notify = () => toast.success("Login Successfully",{position:'top-center',autoClose:2000,});
+            notify()
             localStorage.setItem('token', res.data);
           });
         setUser(user);

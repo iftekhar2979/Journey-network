@@ -2,6 +2,7 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { AuthContext } from '../../Context/UserContext';
 const SignUp = () => {
     const {createNewUser,updateUserProfile,setUser}=useContext(AuthContext)
@@ -14,7 +15,8 @@ const SignUp = () => {
         const user=result.user
         updateUserProfile({displayName,photoURL})
         setUser(user)
-        alert('successfully account created')
+        const notify = () => toast.success("Account Created Successfully",{position:'top-center',autoClose:2000,});
+            notify()
      }).catch(err=>{
         console.log("err : ",err.message)
      })

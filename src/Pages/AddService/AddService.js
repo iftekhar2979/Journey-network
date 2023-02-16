@@ -16,12 +16,14 @@ const AddService = () => {
        object["rating"]=ratings
         axios.post(`http://localhost:8000/addService`,object)
         .then(res=>{
-            console.log(res.data)
             const notify = () => toast.success("Service Added Successfully",{position:'top-center',autoClose:2000,});
             notify()
             reset()
         })
-        .catch(error=>console.log(error))
+        .catch(error=>{
+          const notify=()=>toast.error('service not added successfully')
+          notify()
+        })
     }
     return (
       <HelmetProvider>

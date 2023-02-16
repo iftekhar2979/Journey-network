@@ -1,27 +1,31 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
+import { ReviewState } from '../../Context/ReviewContext';
 import { AuthContext } from '../../Context/UserContext';
 import Loading from '../../utilites/Loading';
 import SingleUserReview from './SingleUserReview';
 const UserReview = () => {
     const {user}=useContext(AuthContext)
     
-    const [userReviews,setUserReviews]=useState()
+    const {userReviews,setUserReviews}=useContext(ReviewState)
+    
     if(!user){
        <Loading></Loading>
     }
     
-    useEffect(()=>{
-       
-        axios.get(`http://localhost:8000/getAllReviews?userUID=${user?.uid}`)
-        .then(res=>{
-            
-            setUserReviews(res.data)
-        })
-        .catch(error=>console.log(error.message))
-    },[user?.uid])
+    // useEffect(()=>{
+    //     axios.get(`http://localhost:8000/getAllReviews?userUID=${user?.uid}`,{ headers: {
+    //       'Content-Type': 'application/json;charset=UTF-8',
+    //       Authorization: `Bearer ${localStorage.getItem('token')}`,
+    //     },})
+    //     .then(res=>{
+    //         setUserReviews(res.data)
+    //     })
+    //     .catch(error=>console.log(error.message))
+    // },[user?.uid])
+    // console.log(userReviews)
     const handleDeleteReview=(reviewId)=>{
        
         if(user){
